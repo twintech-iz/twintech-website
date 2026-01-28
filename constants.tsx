@@ -13,7 +13,7 @@ export const TEXTS: Record<Language, Translations> = {
     },
     hero: {
       title: "Penyelesaian Teknologi & Pembinaan Masa Hadapan",
-      subtitle: "Rakan strategik anda dalam IT, Pembinaan, dan Penyelenggaraan.",
+      subtitle: "Rakan strategik anda dalam IT, Pembinaan, dan Penyelenggaraan. Berinovasi sejak 2003.",
       cta: "Lihat Perkhidmatan",
       since: "Ditubuhkan 2003",
     },
@@ -41,7 +41,7 @@ export const TEXTS: Record<Language, Translations> = {
       catSecurity: "CCTV & Keselamatan",
     },
     portfolio: {
-      title: "Rekod Projek",
+      title: "Rekod Kejayaan",
       subtitle: "Kepercayaan daripada agensi kerajaan dan swasta.",
     },
     contact: {
@@ -258,7 +258,7 @@ export const CLIENTS: PortfolioItem[] = [
   { client: "FAMA", project: "Sistem Continuous Auditing" },
   { client: "FAMA", project: "Website Konvensyen & Sistem Pendaftaran (GPS Lock)" },
   { client: "Myeongdong Topokki", project: "Official Corporate Website" },
-  { client: "Harold's Bread", project: "Website & Online Ordering System" },
+  { client: "Harold's Bread", project: "Website & Cloud Ordering System" },
   { client: "Ibu Pejabat Polis Kontinjen Kedah", project: "CCTV, Networking & PA System" },
   { client: "Majlis Agama Islam Negeri Kedah", project: "Computer Supply & Management" },
   { client: "Jabatan Perikanan Negeri Kedah", project: "Network Installation (Langkawi)" },
@@ -272,16 +272,16 @@ export const CLIENTS: PortfolioItem[] = [
 ];
 
 export const PARTNERS_HARDWARE: PartnerItem[] = [
-  { name: "Dell", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Dell_logo_2016.svg/2560px-Dell_logo_2016.svg.png", url: "https://dell.com" },
-  { name: "HPE", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/HP_logo_2025.svg/2560px-HP_logo_2025.svg.png", url: "https://hpe.com" },
-  { name: "Cisco", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Cisco_logo_blue_2016.svg/2560px-Cisco_logo_blue_2016.svg.png", url: "https://cisco.com" },
-  { name: "Asus", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/ASUS_Logo.svg/2560px-ASUS_Logo.svg.png", url: "https://asus.com" },
-  { name: "Acer", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Acer_2011.svg/2560px-Acer_2011.svg.png", url: "https://acer.com" },
-  { name: "Synology", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Synology_Logo.svg/2560px-Synology_Logo.svg.png", url: "https://synology.com" },
+  { name: "Dell", logo: "https://logo.clearbit.com/dell.com", url: "https://dell.com" },
+  { name: "HPE", logo: "https://logo.clearbit.com/hpe.com", url: "https://hpe.com" },
+  { name: "Cisco", logo: "https://logo.clearbit.com/cisco.com", url: "https://cisco.com" },
+  { name: "Asus", logo: "https://logo.clearbit.com/asus.com", url: "https://asus.com" },
+  { name: "Acer", logo: "https://logo.clearbit.com/acer.com", url: "https://acer.com" },
+  { name: "Synology", logo: "https://logo.clearbit.com/synology.com", url: "https://synology.com" },
 ];
 
 export const PARTNERS_CLOUD: PartnerItem[] = [
-  { name: "AWS", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png", url: "https://aws.amazon.com" },
+  { name: "AWS", logo: "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg", url: "https://aws.amazon.com" },
   { name: "Azure", logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg", url: "https://azure.microsoft.com" },
   { name: "GCP", logo: "https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg", url: "https://cloud.google.com" },
   { name: "Alibaba Cloud", logo: "https://logo.clearbit.com/alibabacloud.com", url: "https://alibabacloud.com" },
@@ -289,8 +289,8 @@ export const PARTNERS_CLOUD: PartnerItem[] = [
 ];
 
 export const PARTNERS_SAAS: PartnerItem[] = [
-  { name: "Google Workspace", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Google_Workspace_Logo.svg", url: "https://workspace.google.com" },
-  { name: "Microsoft 365", logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_365_%282022%29.svg", url: "https://microsoft.com" },
+  { name: "Google Workspace", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Google_Workspace_Logo.svg/2560px-Google_Workspace_Logo.svg.png", url: "https://workspace.google.com" },
+  { name: "Microsoft 365", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Microsoft_365_%282022%29.svg/1280px-Microsoft_365_%282022%29.svg.png", url: "https://microsoft.com" },
   { name: "Cloudflare", logo: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Cloudflare_Logo.svg", url: "https://cloudflare.com" },
   { name: "MongoDB", logo: "https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg", url: "https://mongodb.com" },
   { name: "Vercel", logo: "https://assets.vercel.com/image/upload/v1588805858/repositories/vercel/logo.png", url: "https://vercel.com" },
@@ -300,5 +300,5 @@ export const PARTNERS_SAAS: PartnerItem[] = [
 export const PARTNERS_SECURITY: PartnerItem[] = [
   { name: "Hikvision", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Hikvision_logo.svg/2560px-Hikvision_logo.svg.png", url: "https://hikvision.com" },
   { name: "TP-Link", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/TPLINK_Logo_2.svg/2560px-TPLINK_Logo_2.svg.png", url: "https://tp-link.com" },
-  { name: "EZVIZ", logo: "https://logo.clearbit.com/ezviz.com", url: "https://ezviz.com" },
+  { name: "EZVIZ", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj2BODMwkj9efZR44fEQw8uH6wq-U8vMEPHA&s", url: "https://ezviz.com" },
 ];
