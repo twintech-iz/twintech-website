@@ -28,7 +28,7 @@ const Hero: React.FC<HeroProps> = ({ t }) => {
           muted
           playsInline
           className="w-full h-full object-cover"
-          poster="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2670&auto=format&fit=crop"
+          poster=""
         >
           <source src="/hero-bg.mp4" type="video/mp4" />
           Your browser does not support the video tag.
