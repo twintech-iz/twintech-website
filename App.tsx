@@ -9,6 +9,7 @@ import Partners from './components/Partners';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 const App: React.FC = () => {
   // Default language is Malay ('ms')
@@ -32,6 +33,7 @@ const App: React.FC = () => {
       </main>
 
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };
