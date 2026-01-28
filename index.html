@@ -16,10 +16,34 @@
             },
             colors: {
               brand: {
-                dark: '#0f172a',
+                dark: '#050a14', // Deeper dark
+                card: '#0f172a',
                 primary: '#0ea5e9', // Sky blue
                 secondary: '#6366f1', // Indigo
                 accent: '#10b981', // Emerald
+                purple: '#8b5cf6',
+              }
+            },
+            animation: {
+              'blob': 'blob 7s infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'spin-slow': 'spin 15s linear infinite',
+              'scan': 'scan 3s linear infinite',
+            },
+            keyframes: {
+              blob: {
+                '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                '100%': { transform: 'translate(0px, 0px) scale(1)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              },
+              scan: {
+                '0%': { transform: 'translateY(-100%)' },
+                '100%': { transform: 'translateY(100%)' },
               }
             }
           }
@@ -28,21 +52,146 @@
     </script>
     <style>
       body {
-        background-color: #0f172a;
+        background-color: #050a14;
         color: #f8fafc;
+        overflow-x: hidden;
       }
+      
+      /* Noise Texture Overlay */
+      .noise-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 50;
+        opacity: 0.03;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #050a14;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1e293b;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #334155;
+      }
+
+      /* Glassmorphism Utilities */
       .glass-panel {
-        background: rgba(30, 41, 59, 0.7);
+        background: rgba(15, 23, 42, 0.6);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      /* --- CYBER BOX STYLES --- */
+      
+      /* Base Cyber Card */
+      .cyber-card {
+        position: relative;
+        background: rgba(15, 23, 42, 0.4);
         backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
+
+      /* Angled Cut Corners */
+      .clip-cut-tr {
+        clip-path: polygon(
+          0 0,
+          calc(100% - 20px) 0,
+          100% 20px,
+          100% 100%,
+          0 100%
+        );
+      }
+      
+      .clip-cut-corners {
+        clip-path: polygon(
+          20px 0, 100% 0, 
+          100% calc(100% - 20px), calc(100% - 20px) 100%, 
+          0 100%, 0 20px
+        );
+      }
+
+      /* Animated Corner Brackets */
+      .corner-bracket {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-style: solid;
+        border-color: #0ea5e9;
+        transition: all 0.3s ease;
+        opacity: 0.3;
+        pointer-events: none;
+      }
+      
+      .cyber-card:hover .corner-bracket {
+        opacity: 1;
+        width: 30px;
+        height: 30px;
+        border-color: #0ea5e9;
+        box-shadow: 0 0 10px rgba(14, 165, 233, 0.5);
+      }
+
+      .bracket-tl { top: 0; left: 0; border-width: 2px 0 0 2px; }
+      .bracket-tr { top: 0; right: 0; border-width: 2px 2px 0 0; }
+      .bracket-bl { bottom: 0; left: 0; border-width: 0 0 2px 2px; }
+      .bracket-br { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+
+      /* Scanline Effect */
+      .scan-line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background: linear-gradient(to bottom, transparent, rgba(14, 165, 233, 0.1), transparent);
+        opacity: 0;
+        transition: opacity 0.3s;
+        pointer-events: none;
+      }
+      
+      .cyber-card:hover .scan-line {
+        opacity: 1;
+        animation: scan 2s linear infinite;
+      }
+
       .neon-text {
-        text-shadow: 0 0 10px rgba(14, 165, 233, 0.5);
+        text-shadow: 0 0 20px rgba(14, 165, 233, 0.6);
       }
+
+      /* Scroll Reveal Animations */
+      .reveal-hidden {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+        filter: blur(10px);
+        transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .reveal-visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+
+      /* Grid Background */
       .grid-bg {
-        background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-        background-size: 30px 30px;
+        background-image: 
+          linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+        background-size: 40px 40px;
+        mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
       }
     </style>
   <script type="importmap">
@@ -58,6 +207,7 @@
 <link rel="stylesheet" href="/index.css">
 </head>
   <body>
+    <div class="noise-bg"></div>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>
